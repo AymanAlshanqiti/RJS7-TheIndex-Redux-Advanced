@@ -11,10 +11,6 @@ import Loading from "./Loading";
 import AuthorsList from "./AuthorsList";
 import AuthorDetail from "./AuthorDetail";
 
-const instance = axios.create({
-  baseURL: "https://the-index-api.herokuapp.com"
-});
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchAllAuthors();
@@ -31,7 +27,7 @@ class App extends Component {
           <Route
             path="/authors/"
             render={props => (
-              <AuthorsList {...props} authors={this.props.authors} />
+              <AuthorsList {...props} authors={this.props.filteredAuthors} />
             )}
           />
         </Switch>
